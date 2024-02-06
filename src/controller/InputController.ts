@@ -1,12 +1,18 @@
+import { CoinValidator } from './../commons/validator/CoinValiator';
+import { Parser } from './../commons/util/Parser';
 import { InputView } from "../view/InputView";
 
 export class InputController {
-    public static getMachineMoney(): void {
+    private parser: Parser = new Parser();
+
+    public inputAmountToMachine(): number {
         try {
-            const test = InputView.reqHavingAmount();
-            // console.log('자판기가 보유하고 있는 금액: ', test);
-        } catch {
-            return;
+            const result: string = InputView.reqHavingAmount();
+            CoinValidator.amountValidator(result);
+            const parsedResult: number = this.parser.stringToInt(result);
+            return parsedResult;
+        } catch (error) {
+            throw error;
         }
     };
 };

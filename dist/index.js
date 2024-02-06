@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const MachineController_1 = require("./controller/MachineController");
+const Controller_1 = require("./controller/Controller");
+const Machine_1 = require("./domain/Machine");
 function Application() {
-    const machineController = new MachineController_1.MachineController();
-    machineController.run();
+    const machine = new Machine_1.Machine();
+    const controller = new Controller_1.Controller(machine);
+    controller.run();
 }
 ;
 Application();

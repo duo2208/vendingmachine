@@ -24,7 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InputView = void 0;
-const SystemMessage_1 = require("./../commons/constant/SystemMessage");
+const SystemMessage_1 = require("../commons/constant/SystemMessage");
 const readLineSync = __importStar(require("readline-sync"));
 class InputView {
     static reqHavingAmount() {

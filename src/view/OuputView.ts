@@ -1,8 +1,16 @@
-import { SystemMessage } from './../commons/constant/SystemMessage';
-import * as readLineSync from 'readline-sync';
+import { SystemMessage } from '../commons/constant/SystemMessage';
 
-export class InputView {
-    public static resHavingCoin(): string {
-        return readLineSync.question(SystemMessage.REQ_HAVING_COIN);
-    }
+export class OutputView {
+    public static headHoldingCoinOfMachine(): void {
+        console.log('');
+        console.log(SystemMessage.INFO_HAVING_COIN);
+    };
+
+    public static resHoldingCoinOfMachine(sortedCoinMap: Map<number, number>): void {
+        console.log('```');
+        for (const [integer, count] of sortedCoinMap.entries()) {
+            console.log(`${integer}원 - ${count}개`);
+        };
+        console.log('```');
+    };
 };

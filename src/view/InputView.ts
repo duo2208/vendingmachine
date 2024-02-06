@@ -1,4 +1,4 @@
-import { SystemMessage } from './../commons/constant/SystemMessage';
+import { SystemMessage } from '../commons/constant/SystemMessage';
 import * as readLineSync from 'readline-sync';
 
 export class InputView {
