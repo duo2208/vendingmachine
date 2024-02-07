@@ -8,11 +8,9 @@ class ProductValidator extends Validator_1.Validator {
         this.isRightProducts(input);
     }
     ;
-    isRightProducts(input) {
+    isRightProducts(product) {
+        this.isContainsBracketAndThrowException(product, product.length);
         this.isContainsAllItemInfosAndThrowException();
-        this.isContainsAllItemInfos();
-        this.isContainsBracketAndThrowException();
-        this.isContainsBracket();
     }
     ;
     isContainsAllItemInfosAndThrowException() {
@@ -21,10 +19,14 @@ class ProductValidator extends Validator_1.Validator {
     isContainsAllItemInfos() {
     }
     ;
-    isContainsBracketAndThrowException() {
+    isContainsBracketAndThrowException(product, length) {
+        if (!this.isContainsBracket(product, length)) {
+            throw new Error("[ERROR] 상품 정보를 올바르게 입력해주세요.");
+        }
     }
     ;
-    isContainsBracket() {
+    isContainsBracket(product, length) {
+        return product.indexOf('[') === 0 && product.lastIndexOf(']') === length - 1;
     }
     ;
 }
