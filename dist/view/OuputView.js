@@ -9,12 +9,10 @@ class OutputView {
     }
     ;
     static resHoldingCoinOfMachine(sortedCoinMap) {
-        console.log('```');
         for (const [integer, count] of sortedCoinMap.entries()) {
             console.log(`${integer}원 - ${count}개`);
         }
         ;
-        console.log('```');
     }
     ;
 }

@@ -10,10 +10,18 @@ export class MachineService {
     }
 
     public addAmountToCoinGenerator(machine: Machine, amount: number): void {
-        machine.setCoins(this.coinGenerator.generate(amount));
+        machine.addCoins(this.coinGenerator.generate(amount));
     };
 
     public getMachineCoin(machine: Machine): Map<number, number> {
         return machine.getCoins();
+    };
+
+    public addProductToMachine(machine: Machine, products: Map<string, any>): void {
+        machine.addProducts(products);
+    };
+
+    public addPaymentToMachine(machine: Machine, payment: number): void {
+        machine.addPayment(payment);
     };
 };

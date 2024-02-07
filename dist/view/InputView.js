@@ -31,12 +31,15 @@ class InputView {
         return readLineSync.question(SystemMessage_1.SystemMessage.REQ_HAVING_COIN);
     }
     static reqHavingProdcut() {
+        console.log('');
         return readLineSync.question(SystemMessage_1.SystemMessage.REQ_HAVING_PRODUCT);
     }
     static reqPayment() {
+        console.log('');
         return readLineSync.question(SystemMessage_1.SystemMessage.REQ_PAYMENT);
     }
     static reqSelectedProduct() {
+        console.log('');
         return readLineSync.question(SystemMessage_1.SystemMessage.REQ_SELECTED_PRODUCT);
     }
 }

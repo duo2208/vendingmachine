@@ -8,11 +8,19 @@ class MachineService {
         this.machine = machine;
     }
     addAmountToCoinGenerator(machine, amount) {
-        machine.setCoins(this.coinGenerator.generate(amount));
+        machine.addCoins(this.coinGenerator.generate(amount));
     }
     ;
     getMachineCoin(machine) {
         return machine.getCoins();
+    }
+    ;
+    addProductToMachine(machine, products) {
+        machine.addProducts(products);
+    }
+    ;
+    addPaymentToMachine(machine, payment) {
+        machine.addPayment(payment);
     }
     ;
 }

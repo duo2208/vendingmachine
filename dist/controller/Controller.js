@@ -13,8 +13,9 @@ class Controller {
     run() {
         const machine = new Machine_1.Machine();
         this.initAmountOfMachine(machine);
-        this.initProduct(machine);
-        this.activate(machine);
+        this.initProductOfMachine(machine);
+        this.inputPaymentToMachine(machine);
+        this.purchaseProducts(machine);
         this.giveChanges(machine);
     }
     ;
@@ -25,10 +26,17 @@ class Controller {
         OuputView_1.OutputView.resHoldingCoinOfMachine(this.machineService.getMachineCoin(machine));
     }
     ;
-    initProduct(machine) {
+    initProductOfMachine(machine) {
+        const product = this.inputController.inputProductToMachine();
+        this.machineService.addProductToMachine(machine, product);
     }
     ;
-    activate(machine) {
+    inputPaymentToMachine(machine) {
+        const payment = this.inputController.inputPaymentToMachine();
+        this.machineService.addPaymentToMachine(machine, payment);
+    }
+    ;
+    purchaseProducts(machine) {
     }
     ;
     giveChanges(machine) {

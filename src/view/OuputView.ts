@@ -7,10 +7,8 @@ export class OutputView {
     };
 
     public static resHoldingCoinOfMachine(sortedCoinMap: Map<number, number>): void {
-        console.log('```');
         for (const [integer, count] of sortedCoinMap.entries()) {
             console.log(`${integer}원 - ${count}개`);
         };
-        console.log('```');
     };
 };

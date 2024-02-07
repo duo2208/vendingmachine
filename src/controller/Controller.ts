@@ -4,8 +4,8 @@ import { InputController } from "./InputController";
 import { OutputView } from "../view/OuputView";
 
 export class Controller {
-    inputController: InputController;
-    machineService: MachineService;
+    private inputController: InputController;
+    private machineService: MachineService;
 
     constructor(machine: Machine) {
         this.inputController = new InputController();
@@ -15,8 +15,9 @@ export class Controller {
     public run(): void {
         const machine: Machine = new Machine();
         this.initAmountOfMachine(machine);
-        this.initProduct(machine);
-        this.activate(machine);
+        this.initProductOfMachine(machine);
+        this.inputPaymentToMachine(machine);
+        this.purchaseProducts(machine);
         this.giveChanges(machine);
     };
 
@@ -27,11 +28,17 @@ export class Controller {
         OutputView.resHoldingCoinOfMachine(this.machineService.getMachineCoin(machine));
     };
 
-    private initProduct(machine: Machine): void {
-
+    private initProductOfMachine(machine: Machine): void {
+        const product = this.inputController.inputProductToMachine();
+        this.machineService.addProductToMachine(machine, product)
     };
 
-    private activate(machine: Machine): void {
+    private inputPaymentToMachine(machine: Machine): void {
+        const payment = this.inputController.inputPaymentToMachine();
+        this.machineService.addPaymentToMachine(machine, payment);
+    };
+
+    private purchaseProducts(machine: Machine): void {
 
     };
 

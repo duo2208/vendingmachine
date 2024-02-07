@@ -1,17 +1,28 @@
-
 import { Coin } from './Coin';
+import { CoinStorage } from './CoinStorage';
 import { Product } from './Product';
+import { ProductStorage } from './ProdcutStorage';
 
 export class Machine {
     private coins: Coin[] = [];
-    private items: Product[] = [];
+    private coinStorage: CoinStorage;
+    private productStorage: ProductStorage;
 
     constructor() {
-        return;
+        this.coinStorage = new CoinStorage();
+        this.productStorage = new ProductStorage();
     };
 
-    public setCoins(coins: Coin[]): void {
+    public addCoins(coins: Coin[]): void {
         this.coins.push(...coins);
+    };
+
+    public addProducts(products: Map<string, Product>): void {
+        this.productStorage.addProducts(products);
+    };
+
+    public addPayment(amount: number): void {
+        this.coinStorage.addPayment(amount);
     };
 
     public getCoins(): Map<number, number> {
@@ -25,7 +36,7 @@ export class Machine {
 
     public getCoinMap(): Map<number, number> {
         const coinMap: Map<number, number> = Coin.getSortedCoinMap(this.coins);
-        const 
+        const
     };
 
     private getReturnCoinMap(restCoin: number): Map<number, number> {
@@ -43,10 +54,9 @@ export class Machine {
 
         return returnCoinMap;
     }
-    */
 
     private verifyCoin(restCoin: number, coin: number, count: number) {
         return restCoin >= coin && count > 0;
     };
-
+    */
 }
